@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div id='container'></div>
+<script src="jspm_packages/system.js"></script>
+<script src="jspm.config.js"></script>
+<link ref="stylesheet" href="assets/style.css">
+<script type="text/javascript">
+  System.import('src/main.js').then(function (main) {
+    main.run(document.getElementById('container'));
+  });
+</script>

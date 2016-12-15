@@ -1,0 +1,342 @@
+.adfgx-text, .adfgx-columns {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 18px;
+}
+.adfgx-text {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #000;
+  margin: 5px 0;
+  padding: 10px;
+}
+.adfgx-cell {
+  padding: 2px
+}
+
+.adfgx-q-guess {
+  background-color: #eee;
+}
+.adfgx-q-hint {
+  background-color: #aaa;
+}
+
+/*
+
+  Tool hints
+
+*/
+.hints-title {
+  font-weight: bold;
+  margin-bottom: 0;
+  text-align: center;
+}
+.hints-section-title {
+  font-weight: bold;
+  margin: 10px 0 0;
+}
+.adfgx-cell-selected {
+  background-color: #ccc;
+}
+.adfgx-hints-grid,
+.adfgx-hints-alphabet {
+  display: inline-block;
+  vertical-align: top;
+}
+.adfgx-hints-grid table td,
+.adfgx-hints-alphabet table td,
+.adfgx-hints-perm-grid  table td {
+    border: 1px solid #777;
+    padding: 3px 5px;
+}
+.adfgx-alphabet .adfgx-hint-obtained {
+  background-color: #aaa;
+}
+.adfgx-hints-grid {
+  width: 33%;
+}
+.adfgx-hints-grid p {
+  text-align: center;
+}
+.adfgx-hints-grid table.adfgx-grid {
+  width: auto;
+  border: none;
+  margin: 0 auto;
+}
+.adfgx-hints-grid .adfgx-grid th,
+.adfgx-hints-grid .adfgx-grid td {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.adfgx-hints-grid .adfgx-grid th {
+  border: none;
+}
+.adfgx-hints-alphabet {
+  width: 66%;
+}
+.adfgx-hints-alphabet p {
+  text-align: center;
+}
+.adfgx-hints-alphabet table.adfgx-alphabet {
+  width: auto;
+  text-align: center;
+  margin-top: 40px;
+ }
+.adfgx-hints-alphabet .adfgx-cell,
+.adfgx-hints-alphabet td.qualifier-disabled {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.adfgx-hints-alphabet .adfgx-source {
+  font-size: 10px;
+  display: block;
+  height: 1em;
+}
+
+/* Wires section */
+.adfgx-hints-perm-labels {
+  display: inline-block;
+  width: 50%;
+  margin: 0 20px;
+  vertical-align: top;
+}
+.adfgx-hints-perm-grid {
+  display: inline-block;
+}
+.adfgx-hints-perm-grid table {
+  border: 1px solid #000;
+  text-align: center;
+}
+.adfgx-hints-perm-grid td {
+  width: 30px;
+  height: 30px;
+}
+.adfgx-wire-line {
+  clear: both;
+}
+.adfgx-wire-line::before,
+.adfgx-wire-line::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.adfgx-wire-cell {
+  width: 15px;
+  height: 5px;
+  border: none;
+  float: left;
+}
+.adfgx-wire-cell {
+  background-image: url("adfgx/traits.png");
+  background-repeat: no-repeat;
+}
+.adfgx-wire-cell-a {background: transparent;}
+.adfgx-wire-cell-b {background-position: 0px -4px;}
+.adfgx-wire-cell-c {background-position: 0px -19px;}
+.adfgx-wire-cell-d {background-position: 0px -34px;}
+.adfgx-wire-cell-e {background-position: 0px -49px;}
+.adfgx-wire-cell-f {background-position: 0px -64px;}
+.adfgx-wire-cell-g {background-position: 0px -79px;}
+.adfgx-wire-cell-h {background-position: 0px -94px;}
+
+
+/*
+
+  Tool apply permutations
+
+*/
+
+.adfgx-columns {
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.adfgx-column {
+  display: inline-block;
+  margin-right: 8px;
+}
+.adfgx-bigram {
+  margin-bottom: 3px;
+  border: 1px solid #ccc;
+}
+.adfgx-columns .adfgx-cell {
+  padding: 0 2px;
+  display: block;
+}
+
+/*
+
+  Tool enumerate permutations
+
+*/
+
+.adfgx-table {
+  width: auto;
+  float: left;
+  margin-right: 20px;
+  border: 1px solid #777;
+  padding: 3px 5px;
+}
+.adfgx-table th,
+.adfgx-table td {
+  border: none;
+  text-align: center;
+}
+.adfgx-table th {
+  font-weight: normal;
+}
+.adfgx-table td {
+  cursor: pointer;
+  padding: 5px;
+}
+.adfgx-table-scroll-body thead,
+.adfgx-table-scroll-body tbody {
+  display: block;
+}
+.adfgx-table-scroll-body tbody {
+  overflow-y: auto;
+  height: 140px;
+}
+.adfgx-table-scroll-body thead {
+  border-bottom: 1px solid #000;
+}
+.adfgx-table-scroll-body .adfgx-col-l {
+  width: 200px;
+}
+.adfgx-table-scroll-body .adfgx-col-m {
+  width: 150px;
+}
+.adfgx-table-scroll-body .adfgx-col-s {
+  width: 100px;
+}
+.adfgx-table-scroll-body .adfgx-col-sort {
+  cursor: pointer;
+}
+.adfgx-table-scroll-body .adfgx-col-sort::after {
+  content: " \f0d8";
+  font-family: FontAwesome;
+}
+.adfgx-table-scroll-body .adfgx-col-sort-key {
+  font-weight: bold;
+}
+.adfgx-table-scroll-body .adfgx-col-sort:hover,
+.adfgx-table tbody tr:hover {
+  background-color: #ccc;
+  color: #000;
+}
+.adfgx-perm-selected {
+  font-weight: bold;
+  background-color: #000;
+  color: #fff;
+}
+.adfgx-permutation .adfgx-cell {
+  border: 1px solid #000;
+  padding: 3px 6px;
+  border-left: none;
+  background-color: #fff;
+  font-size: 1.8rem;
+}
+.adfgx-permutation .adfgx-cell:first-child {
+  border-left: 1px solid #000;
+}
+.adfgx-perm-selected .adfgx-permutation .adfgx-cell {
+  color: #000;
+}
+.adfgx-controls button {
+  margin-bottom: 10px;
+}
+/*
+
+  Tool Frequency Analysis
+
+*/
+
+/* frequency labels */
+.adfgx-freq-labels {
+  float: left;
+  width: 12em;
+  text-align: right;
+  font-size: 1.2rem;
+  margin-right: 1em;
+}
+.adfgx-freq-label-freq-src span,
+.adfgx-freq-label-symb-src span,
+.adfgx-freq-label-symb-tgt span,
+.adfgx-freq-label-freq-tgt span {
+  display: table-cell;
+}
+.adfgx-freq-label-freq-src span {
+  height: 45px;
+  vertical-align: bottom;
+}
+.adfgx-freq-label-symb-src span {
+  vertical-align: middle;
+  height: 40px;
+}
+.adfgx-freq-label-symb-tgt span {
+  height: 28px;
+  vertical-align: middle;
+}
+.adfgx-freq-label-freq-tgt span {
+  padding-top: 6px;
+  vertical-align: top;
+}
+
+/* frequency display  */
+.adfgx-subst-pair {
+  display: inline-block;
+  width: 22px;
+  margin-right: 4px;
+}
+.adfgx-subst-freq {
+  line-height: 45px;
+  display: block;
+  margin: 0 auto;
+  width: 12px;
+}
+.adfgx-subst-tgt .adfgx-subst-freq {
+  margin-top: 6px;
+}
+.adfgx-subst-freq span {
+  display: inline-block;
+  background-color: #333;
+  width: 100%;
+}
+.adfgx-subst-src .adfgx-subst-freq span {
+  vertical-align: bottom;
+}
+.adfgx-subst-tgt .adfgx-subst-freq span {
+  vertical-align: top;
+}
+.adfgx-subst-src .adfgx-subst-chars {
+  font-family: "Lucida Console", Monaco, monospace;
+  margin: 6px 0;
+  display: block;
+}
+.adfgx-subst-src .adfgx-subst-chars span {
+  display: block;
+  text-align: center;
+  line-height: 1;
+}
+.adfgx-subst-tgt {
+  margin-top: 3px;
+}
+.adfgx-q-unconfirmed .adfgx-subst-tgt,
+.adfgx-q-guess .adfgx-subst-tgt {
+  cursor: move;
+}
+.adfgx-q-guess .adfgx-subst-tgt:hover,
+.adfgx-q-unconfirmed .adfgx-subst-tgt:hover {
+  background: #ccc;
+}
+.adfgx-subst-tgt .adfgx-subst-char {
+  font-family: "Lucida Console", Monaco, monospace;
+  border: 1px solid #000;
+  display: block;
+  text-align: center;
+  padding: 3px;
+}
+.adfgx-subst-tgt-frequency {
+  display: block;
+}
