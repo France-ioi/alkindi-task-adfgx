@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<div id='container'></div>
+<link ref="stylesheet" href="assets/platform.css">
+<div class="container">
+  <div id='demo'></div>
+</div>
 <script src="jspm_packages/system.js"></script>
 <script src="jspm.config.js"></script>
-<link ref="stylesheet" href="assets/style.css">
+<script src="dist/deps.js"></script>
 <script type="text/javascript">
-  System.import('src/main.js').then(function (main) {
-    main.run(document.getElementById('container'));
+  System.import('alkindi-task').then(function (main) {
+    main.run(document.getElementById('demo'));
   });
 </script>

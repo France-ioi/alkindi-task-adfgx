@@ -2,16 +2,23 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Alert, Button} from 'react-bootstrap';
 import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import EpicComponent from 'epic-component';
 
-import {at, put} from './misc';
-import WorkspaceManager from './workspace';
+import * as WorkspaceManager from './workspace';
+import reducer from './reducer';
 
-import * as Task from '.';
+// import {at, put} from './misc';
+
+import 'normalize.css';
+import 'font-awesome/css/font-awesome.css';
+import 'rc-tooltip/assets/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import './style.css';
 
 const initialTask = {
    // p. dech. 631524 (ch. LUHYPF)
@@ -38,8 +45,8 @@ const findInGrid = function (grid, rank) {
 };
 
 const BareDemoSelector = function (state) {
-   const {score, task, workspace, unsavedChanges} = state;
-   return {score, task, workspace, unsavedChanges};
+   const {score, task, workspace, unsavedChanges, rootScope} = state;
+   return {score, task, workspace, unsavedChanges, rootScope};
 };
 
 const BareDemo = EpicComponent(self => {
@@ -49,8 +56,8 @@ const BareDemo = EpicComponent(self => {
    };
 
    self.render = function () {
-      const {task, workspace, unsavedChanges, dispatch} = self.props;
       // return <Task.Task task={task} assetUrl={assetUrl}/>
+      const {task, rootScope, workspace, unsavedChanges, dispatch} = self.props;
       if (!task) {
          return <p>Task is not loaded.</p>;
       }
@@ -60,7 +67,7 @@ const BareDemo = EpicComponent(self => {
       return (
          <div>
             {unsavedChanges && <p>There are unsaved changes.</p>}
-            <Task.Workspace task={task} workspace={workspace} dispatch={dispatch}/>
+            <WorkspaceManager.View workspace={workspace} rootScope={rootScope} dispatch={dispatch}/>
          </div>
       );
    };
@@ -96,21 +103,8 @@ const Demo = DragDropContext(HTML5Backend)(connect(BareDemoSelector)(BareDemo));
    };
 */
 
-
-const reducer = function (state, action) {
-   let newState = state;
-   switch (action.type) {
-      case '@@redux/INIT':
-         return {task: initialTask};
-   }
-   if (/^Task\./.test(action.type)) {
-      newState = Task.reducer(newState, action);
-   }
-   return newState;
-};
-
 export function run (container) {
    const store = createStore(reducer);
-   store.dispatch({type: 'Task.Init'});
+   store.dispatch({type: 'Task.Init', task: initialTask});
    ReactDOM.render(<Provider store={store}><Demo/></Provider>, container);
 };
