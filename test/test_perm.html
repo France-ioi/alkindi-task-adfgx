@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+<script>
+
+// distributes heights from 1 to premutation.length included
+function getPlateauHeights(permutation) {
+   var height = 1;
+   var srcHeights = [];
+   // connexions going to the left get the first ones, in increasing order so they don't intersect eachother
+   for (var src = 0; src < permutation.length; src++) {
+      var dst = permutation[src];
+      if (dst < src) {
+         srcHeights[src] = height;
+         height++;
+      }
+   }
+   // then straight connexions
+   for (var src = 0; src < permutation.length; src++) {
+      var dst = permutation[src];
+      if (dst == src) {
+         srcHeights[src] = height;
+         height++;
+      }
+   }
+   // then connexions going to the right, in reverse order so they don't intersect eachother
+   for (var src = permutation.length - 1; src >= 0; src--) {
+      var dst = permutation[src];
+      if (src < dst) {
+         srcHeights[src] = height;
+         height++;
+      }
+   }
+   return srcHeights;
+}
+
+// we build a permutation.length x permutation.length*2 grid, containing
+// the descriptions of connectors for the given permutation
+// connectors start in even cells at the top, and odd cells at the bottom
+function getPermutationDisplayGrid(permutation) {
+   var grid = [];
+   for (var row = 0; row < permutation.length + 2; row++) {
+      grid[row] = [];
+      for (var col = 0; col < permutation.length; col++) {
+         grid[row][col * 2] = 0;
+         grid[row][col * 2 + 1] = 0;
+      }
+   }
+   // for each top (source) connector, we get the height of the plateau
+   var srcHeights = getPlateauHeights(permutation);
+   // we add each connexion one by one
+   for (var src = 0; src < permutation.length; src++) {
+      var dst = permutation[src];
+      var side = 0;
+      if (dst <= src) {
+         side = 1;
+      }
+      var height = srcHeights[src];
+      // top vertical line
+      for (var row = 0; row < height; row++) {
+         grid[row][src * 2] += 5; // |
+      }
+      // bottom vertical line
+      for (var row = height + 1; row < permutation.length + 2; row++) {
+         grid[row][dst * 2 + 1] += 5; // |
+      }
+      if (src <= dst) { // top is on the left side of bottom connector)
+         // horizontal line (too long but will be overwritten)
+         for (var col = src; col <= dst; col++) {
+            grid[height][col * 2] += 10; // -
+            grid[height][col * 2 + 1] += 10; // -
+         }
+         // elbows (overwrites part of the horizontal line)
+         grid[height][src * 2] = 3; // └
+         grid[height][dst * 2 + 1] = 12; // ┐
+      } else  if (src > dst) {
+         // right elbow
+         grid[height][src * 2] = 9; // ┘
+         // horizontal line
+         for (var col = dst + 1; col < src; col++) {
+            grid[height][col * 2] += 10; // -
+            grid[height][col * 2 + 1] += 10; // -
+         }
+         // left elbow
+         grid[height][dst * 2 + 1] = 6; // ┌
+      }
+   }
+   return grid;
+}
+
+function getSymbol(bits) {
+   return 'a..b.cd..ef.g..h'.charAt(bits);
+}
+
+var renderPermutation = function(permutation) {
+   var grid = getPermutationDisplayGrid(permutation);
+   var rows = [];
+   for (var row = 0; row < permutation.length + 2; row++) {
+      var strRow = "";
+      for (var col = 0; col < permutation.length; col++) {
+         strRow += getSymbol(grid[row][col * 2]);
+         strRow += getSymbol(grid[row][col * 2 + 1]);
+      }
+      rows.push("<div>" + strRow + "</div>");
+   }
+   return "<div>" + rows.join('') + "</div>";
+}
+
+document.write("<pre>" + renderPermutation([2, 1, 0, 5, 3, 4]) + "</pre>");
+document.write("<pre>" + renderPermutation([4, 2, 5, 1, 3, 0]) + "</pre>");
+document.write("<pre>" + renderPermutation([5, 4, 3, 2, 1, 0]) + "</pre>");
+document.write("<pre>" + renderPermutation([3, 4, 5, 0, 1, 2]) + "</pre>");
+document.write("<pre>" + renderPermutation([4, 3, 0, 5, 2, 1]) + "</pre>");
+document.write("<pre>" + renderPermutation([0, 2, 4, 1, 3, 5]) + "</pre>");
+document.write("<pre>" + renderPermutation([1, 2, 3, 4, 5, 0]) + "</pre>");
+document.write("<pre>" + renderPermutation([1, 0, 3, 2, 5, 4]) + "</pre>");
+
+</script>

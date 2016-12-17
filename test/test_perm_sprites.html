@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test sprites</title>
+	<style type="text/css">
+	.sprite-symb span {
+		border: 1px solid #000;
+		width: 29px;
+		height: 29px;
+		display: block;
+		float: left;
+		border-left: none;
+	}
+	.sprite-symb span:first-child {
+		border-left: 1px solid #000;
+	}
+	.sprite-line {
+		clear: both;
+	}
+	.sprite-line::before,
+	.sprite-line::after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+	.sprite-cell {
+		width: 15px;
+		height: 5px;
+		border: none;
+		float: left;
+	}
+	.sprite-cell {
+		background-image: url(traits.png);
+		background-repeat: no-repeat;
+	}
+	.sprite-cell.a {background: transparent;}
+	.sprite-cell.b {background-position: 0px -4px;}
+	.sprite-cell.c {background-position: 0px -19px;}
+	.sprite-cell.d {background-position: 0px -34px;}
+	.sprite-cell.e {background-position: 0px -49px;}
+	.sprite-cell.f {background-position: 0px -64px;}
+	.sprite-cell.g {background-position: 0px -79px;}
+	.sprite-cell.h {background-position: 0px -94px;}
+	</style>
+</head>
+<body>
+	<div class="sprite-tool">
+		<div class="sprite-symb">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="sprite-line"><!--1-->
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+		</div>
+		<div class="sprite-line"><!--2-->
+			<div class="sprite-cell b"></div>
+			<div class="sprite-cell f"></div>
+			<div class="sprite-cell h"></div>
+			<div class="sprite-cell f"></div>
+			<div class="sprite-cell h"></div>
+			<div class="sprite-cell g"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+		</div>
+		<div class="sprite-line"><!--3-->
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell b"></div>
+			<div class="sprite-cell f"></div>
+			<div class="sprite-cell h"></div>
+			<div class="sprite-cell f"></div>
+			<div class="sprite-cell h"></div>
+			<div class="sprite-cell g"></div>
+		</div>
+		<div class="sprite-line"><!--4-->
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell b"></div>
+			<div class="sprite-cell g"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell c"></div>
+		</div>
+		<div class="sprite-line"><!--5-->
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell d"></div>
+			<div class="sprite-cell e"></div>
+			<div class="sprite-cell c"></div>
+		</div>
+		<div class="sprite-line"><!--6-->
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell d"></div>
+			<div class="sprite-cell e"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+		</div>
+		<div class="sprite-line"><!--7-->
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell d"></div>
+			<div class="sprite-cell f"></div>
+			<div class="sprite-cell h"></div>
+			<div class="sprite-cell e"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+		</div>
+		<div class="sprite-line"><!--8-->
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+			<div class="sprite-cell a"></div>
+			<div class="sprite-cell c"></div>
+		</div>
+		<div class="sprite-symb">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+</body>
+</html>
