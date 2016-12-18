@@ -21,6 +21,7 @@
     "name": "alkindi-task-adfgx",
     "main": "main.js",
     "dependencies": {
+      "alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
       "array.prototype.fill": "npm:array.prototype.fill@^1.0.1",
       "babel-runtime": "npm:babel-runtime@^6.20.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.7",
@@ -50,6 +51,7 @@
       "core-js": "npm:core-js@^2.4.1",
       "css": "github:systemjs/plugin-css@^0.1.32",
       "graceful-fs": "npm:graceful-fs@^4.1.6",
+      "image": "github:systemjs/plugin-image@^0.1.0",
       "module": "npm:jspm-nodelibs-module@^0.2.0",
       "normalize.css": "github:necolas/normalize.css@^5.0.0",
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.17",

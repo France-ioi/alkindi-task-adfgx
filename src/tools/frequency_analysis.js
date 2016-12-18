@@ -3,9 +3,7 @@ import {Button} from 'react-bootstrap';
 import EpicComponent from 'epic-component';
 import classnames from 'classnames';
 import {DragSource, DropTarget} from 'react-dnd';
-
-import Variables from './alkindi-ui/variables';
-import Python from './alkindi-ui/python';
+import {Python, Variables} from 'alkindi-task-lib/ui';
 
 import {getQualifierClass, getFrequencies, applySubstitutionToText} from './common';
 

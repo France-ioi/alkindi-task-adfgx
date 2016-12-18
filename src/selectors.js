@@ -1,5 +1,5 @@
 
-import * as WorkspaceManager from './workspace';
+import {WorkspaceManager} from 'alkindi-task-lib';
 
 /* Selector returning whether the task's state has unsaved changes. */
 export function hasUnsavedChanges (state) {

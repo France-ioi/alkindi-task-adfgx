@@ -6,12 +6,16 @@ SystemJS.config({
     "paths": {
       "npm:": "jspm_packages/npm/",
       "github:": "jspm_packages/github/",
+      "local:": "jspm_packages/local/",
       "alkindi-task-adfgx/": "src/"
     }
   },
   meta: {
     "*.css": {
       "loader": "css"
+    },
+    "images/*": {
+      "loader": "image"
     }
   },
   defaultExtension: "js",
@@ -37,9 +41,12 @@ SystemJS.config({
   packageConfigPaths: [
     "npm:@*/*.json",
     "npm:*.json",
-    "github:*/*.json"
+    "github:*/*.json",
+    "local:*.json"
   ],
   map: {
+    "France-ioi/alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
+    "alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "array.prototype.fill": "npm:array.prototype.fill@1.0.1",
     "assert": "npm:jspm-nodelibs-assert@0.2.0",
@@ -394,34 +401,13 @@ SystemJS.config({
     },
     "npm:rc-tooltip@3.4.2": {
       "map": {
-        "rc-trigger": "npm:rc-trigger@1.8.0"
-      }
-    },
-    "npm:rc-trigger@1.8.0": {
-      "map": {
-        "rc-util": "npm:rc-util@4.0.2",
-        "rc-align": "npm:rc-align@2.3.2",
-        "babel-runtime": "npm:babel-runtime@6.20.0",
-        "rc-animate": "npm:rc-animate@2.3.1"
-      }
-    },
-    "npm:rc-align@2.3.2": {
-      "map": {
-        "rc-util": "npm:rc-util@3.4.1",
-        "dom-align": "npm:dom-align@1.5.2"
+        "rc-trigger": "npm:rc-trigger@1.8.1"
       }
     },
     "npm:rc-util@4.0.2": {
       "map": {
         "add-dom-event-listener": "npm:add-dom-event-listener@1.0.1",
         "shallowequal": "npm:shallowequal@0.2.2"
-      }
-    },
-    "npm:rc-util@3.4.1": {
-      "map": {
-        "add-dom-event-listener": "npm:add-dom-event-listener@1.0.1",
-        "shallowequal": "npm:shallowequal@0.2.2",
-        "classnames": "npm:classnames@2.2.5"
       }
     },
     "npm:babel-runtime@6.20.0": {
@@ -560,6 +546,36 @@ SystemJS.config({
     "npm:epic-linker@1.0.6": {
       "map": {
         "babel-runtime": "npm:babel-runtime@6.20.0"
+      }
+    },
+    "npm:rc-trigger@1.8.1": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.20.0",
+        "rc-align": "npm:rc-align@2.3.3",
+        "rc-util": "npm:rc-util@4.0.2",
+        "rc-animate": "npm:rc-animate@2.3.1"
+      }
+    },
+    "npm:rc-align@2.3.3": {
+      "map": {
+        "rc-util": "npm:rc-util@4.0.2",
+        "dom-align": "npm:dom-align@1.5.2"
+      }
+    },
+    "github:France-ioi/alkindi-task-lib@master": {
+      "map": {
+        "classnames": "npm:classnames@2.2.5",
+        "epic-component": "npm:epic-component@0.3.1",
+        "array.prototype.fill": "npm:array.prototype.fill@1.0.1",
+        "babel-runtime": "npm:babel-runtime@6.20.0",
+        "es5-shim": "npm:es5-shim@4.5.9",
+        "epic-linker": "npm:epic-linker@1.0.6",
+        "es5-sham-ie8": "npm:es5-sham-ie8@1.0.1",
+        "html5shiv": "npm:html5shiv@3.7.3",
+        "rc-tooltip": "npm:rc-tooltip@3.4.2",
+        "es6-promise": "npm:es6-promise@4.0.5",
+        "es6-shim": "npm:es6-shim@0.35.2",
+        "object.assign": "npm:object.assign@4.0.4"
       }
     }
   }

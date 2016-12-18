@@ -10,7 +10,8 @@ SystemJS.config({
     "normalize.css": "github:necolas/normalize.css@5.0.0",
     "css": "github:systemjs/plugin-css@0.1.32",
     "graceful-fs": "npm:graceful-fs@4.1.11",
-    "sass": "github:mobilexag/plugin-sass@0.5.1"
+    "sass": "github:mobilexag/plugin-sass@0.5.1",
+    "image": "github:systemjs/plugin-image@0.1.0"
   },
   packages: {
     "npm:babel-core@6.20.0": {

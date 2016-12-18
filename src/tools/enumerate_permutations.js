@@ -2,9 +2,7 @@ import React from 'react';
 import EpicComponent from 'epic-component';
 import classnames from 'classnames';
 import {Button} from 'react-bootstrap';
-
-import Variables from './alkindi-ui/variables';
-import Python from './alkindi-ui/python';
+import {Python, Variables} from 'alkindi-task-lib/ui';
 
 import {bigramsFromText, coincidenceIndex, generatePermutations,
         comparePermutations, permutationFromString, applyPermutation,

@@ -2,6 +2,16 @@ import React from 'react';
 import {Alert, Button} from 'react-bootstrap';
 import EpicComponent from 'epic-component';
 
+// XXX use System.resolve to resolve paths to URL?
+//import System from 'systemjs';
+const img_grille_1 = 'assets/grille_1.png';
+const img_grille_2 = 'assets/grille_2.png';
+const img_permutation_1 = 'assets/permutation_1.png';
+const img_permutation_2 = 'assets/permutation_2.png';
+const img_permutation_maths = 'assets/permutation_maths.png';
+const img_permutation_maths_2 = 'assets/permutation_maths_2.png';
+const img_permutation_maths_3 = 'assets/permutation_maths_3.png';
+
 export const TabHeader = EpicComponent(self => {
    self.render = function () {
       return (
@@ -177,7 +187,7 @@ export const Feedback = EpicComponent(self => {
 export const Task = EpicComponent(self => {
 
    self.render = function () {
-      const {task, assetUrl} = self.props;
+      const {task} = self.props;
       const lines = task.cipher_text.match(/.{1,40}/g);
       return (<div>
 
@@ -215,13 +225,13 @@ export const Task = EpicComponent(self => {
    <ol>
       <li>
          <p>d'une grille secrète (la clé-grille) : on place toutes les lettres de l'alphabet sauf W dans une grille 5x5 pour laquelle les lignes et les colonnes portent des étiquettes A, D, F, G et X, par exemple :</p>
-         <p className="text-center"><img src={assetUrl("grille_1.png")} style={{width:'280px'}} title=""/></p>
+         <p className="text-center"><img src={img_grille_1} style={{width:'280px'}} title=""/></p>
       </li>
       <li>
          <p>d'une permutation secrète (la clé-permutation) : en mathématiques une permutation de taille n est une façon de réordonner n objets. Voici un exemple de permutation de taille 6 :</p>
-         <p className="text-center"><img src={assetUrl("permutation_1.png")} style={{width:'400px'}} title=""/></p>
+         <p className="text-center"><img src={img_permutation_1} style={{width:'400px'}} title=""/></p>
          <p>Cette permutation est notée en mathématiques :</p>
-         <p className="text-center"><img src={assetUrl("permutation_maths.png")} style={{width:'150px'}} title=""/></p>
+         <p className="text-center"><img src={img_permutation_maths.png} style={{width:'150px'}} title=""/></p>
          <p>En informatique, on la note [4,1,5,2,3,6]. Nous utiliserons la notation informatique dans les outils.</p>
       </li>
    </ol>
@@ -239,7 +249,7 @@ export const Task = EpicComponent(self => {
       <li>
          <p>On cherche chaque lettre du message dans la grille et on la remplace par deux lettres : l'étiquette de sa ligne puis l'étiquette de sa colonne dans la grille.</p>
          <p>Par exemple, dans la grille ci-dessous O est chiffré par DF :</p>
-         <p className="text-center"><img src={assetUrl("grille_2.png")} title=""/></p>
+         <p className="text-center"><img src={img_grille_2} title=""/></p>
          <p>En appliquant cette procédure sur toutes les lettres de notre message &laquo;AGEORGESPAINVIN&raquo;, il devient &nbsp;&laquo;XXFGADDFAFFGADFADGXXDDXGXDDDXG&raquo;. On appelle ce nouveau texte le message intermédiaire.</p>
       </li>
       <li>
@@ -255,7 +265,7 @@ export const Task = EpicComponent(self => {
       </li>
       <li>
          <p>On applique notre permutation en l'inscrivant sur le côté des lignes à gauche, puis en triant les lignes selon ces valeurs. Ainsi pour la permutation [4, 1, 5, 2, 3 6], la 1ère ligne va à la 4e position, la ligne 2 va à la 1ère position, la ligne 3 à la 5e position, la 4e à la 2e position et la 5e à la 3e position, tandis que la 6e reste sur place</p>
-         <p className="text-center"><img src={assetUrl("permutation_2.png")} title=""/></p>
+         <p className="text-center"><img src={img_permutation_2} title=""/></p>
       </li>
       <li>
          <p>
@@ -274,11 +284,11 @@ export const Task = EpicComponent(self => {
          <p>
          Pour calculer l’inverse d’une permutation, on l’écrit sous la notation mathématique, on échange la rangée de haut et celle de bas et ensuite on trie les colonnes dans l’ordre des valeurs de la rangée qui est maintenant en haut. Par exemple quand on échange la rangée de haut et de bas pour [4,1,5,2,3,6] on trouve
          </p>
-         <p className="text-center"><img src={assetUrl("permutation_maths_2.png")} style={{width:'150px'}} title=""/></p>
+         <p className="text-center"><img src={img_permutation_maths_2} style={{width:'150px'}} title=""/></p>
          <p>
          et quand on trie les colonnes dans l’ordre des valeurs de la première rangée, on obtient la permutation inverse :
          </p>
-         <p className="text-center"><img src={assetUrl("permutation_maths_3.png")} style={{width:'150px'}} title=""/></p>
+         <p className="text-center"><img src={img_permutation_maths_3} style={{width:'150px'}} title=""/></p>
          <p>
             ou [2,4,5,1,3,6] en notation informatique ;
          </p>
