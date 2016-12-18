@@ -7,26 +7,19 @@
     "Mathias Hiron <mathias.hiron@gmail.com>"
   ],
   "scripts": {
-    "build": "jspm build src/index.js dist/index.js --format cjs",
-    "build-dev": "babel --source-maps --watch src -d dist/",
-    "build-deps": "jspm bundle src/main.js - '[src/**/*]' dist/deps.js",
+    "build": "jspm build src/main.js dist/index.js --minify --format umd --global-name Task",
+    "build-dev": "jspm bundle --minify src/main.js - '[src/**/*]' + babel-plugin-transform-react-jsx + css dist/dev-bundle.js",
     "serve": "http-server .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.4.5",
-    "babel-core": "^6.20.0",
-    "babel-plugin-transform-object-rest-spread": "^6.1.18",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.3.13",
     "http-server": "^0.9.0",
     "jspm": "^0.17.0-beta.32"
   },
   "jspm": {
     "name": "alkindi-task-adfgx",
-    "main": "index.js",
+    "main": "main.js",
     "dependencies": {
       "array.prototype.fill": "npm:array.prototype.fill@^1.0.1",
       "babel-runtime": "npm:babel-runtime@^6.20.0",
@@ -35,7 +28,6 @@
       "collections": "npm:collections@^5.0.5",
       "deepmerge": "npm:deepmerge@^1.3.1",
       "epic-component": "npm:epic-component@^0.3.1",
-      "epic-linker": "npm:epic-linker@^1.0.6",
       "es5-sham-ie8": "npm:es5-sham-ie8@^1.0.1",
       "es5-shim": "npm:es5-shim@^4.5.9",
       "es6-promise": "npm:es6-promise@^4.0.5",
@@ -44,17 +36,12 @@
       "flatten": "npm:flatten@^1.0.2",
       "html5shiv": "npm:html5shiv@^3.7.3",
       "intersperse": "npm:intersperse@^1.0.0",
-      "lodash": "npm:lodash@^4.17.2",
-      "memoizejs": "npm:memoizejs@^0.1.1",
       "node-range": "npm:node-range@^0.1.0",
       "object.assign": "npm:object.assign@^4.0.4",
       "rc-tooltip": "npm:rc-tooltip@^3.4.2",
       "react-bootstrap": "npm:react-bootstrap@^0.30.7",
       "react-dnd-html5-backend": "npm:react-dnd-html5-backend@^2.1.2",
-      "react-redux": "npm:react-redux@^4.4.6",
-      "reselect": "npm:reselect@^2.5.4",
-      "shuffle": "npm:shuffle@^0.2.2",
-      "superagent": "npm:superagent@^3.1.0"
+      "react-redux": "npm:react-redux@^4.4.6"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^6.20.0",
@@ -125,23 +112,6 @@
         },
         "map": {
           "_stream_transform": "readable-stream/transform"
-        }
-      },
-      "npm:debug@2.3.3": {
-        "main": "browser.js",
-        "jspmNodeConversion": false,
-        "format": "cjs",
-        "map": {
-          "./browser.js": {
-            "node": "./node.js"
-          },
-          "./node.js": {
-            "browser": "./browser.js"
-          },
-          "fs": "@node/fs",
-          "net": "@node/net",
-          "tty": "@node/tty",
-          "util": "@node/util"
         }
       },
       "npm:debug@2.4.1": {

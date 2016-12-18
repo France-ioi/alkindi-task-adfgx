@@ -1,4 +1,15 @@
-/* Platformless task driver */
+
+// IE8 compatibility:
+import 'html5shiv';
+import 'es5-shim';
+import 'es5-sham-ie8';
+// IE9+ compatibility:
+import ObjectAssign from 'object.assign';
+ObjectAssign.shim();
+// Array.prototype.find not available on Chrome
+import 'es6-shim';
+// Array.prototype.fill not available on IE
+import 'array.prototype.fill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -16,23 +27,10 @@ import reducer from './reducer';
 
 import 'normalize.css';
 import 'font-awesome/css/font-awesome.css';
-import 'rc-tooltip/assets/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'rc-tooltip/assets/bootstrap.css';
+import './platform.css';
 import './style.css';
-
-const initialTask = {
-   // p. dech. 631524 (ch. LUHYPF)
-   // subst. par freq. EATISNRUOLDCVMPFBXGHQJYZK
-   // grille: AHVNR LIFTD PKXMO UCBQS JGYEZ
-   // texte: NOTREPLANCOMMENCEDEFACONFORMIDABLEETJETI…
-   substitution_grid: [[null,null,null,null,null],[null,null,null,null,null],[null,null,null,null,null],[null,null,null,null,null],[null,null,null,null,null]],
-   permutation: [null, null, null, null, null, null],
-   hints: {
-      substitution_grid: [[0, 7, 21, 13, 17], [11, 8, 5, 19, 3], [15, 10, 22, 12, 14], [20, 2, 1, 16, 18], [9, 6, 23, 4, 24]],
-      permutation: [5, 2, 0, 4, 1, 3],
-   },
-   cipher_text: "GAGGGXAGXXAGGGFXADXDXXXAGDGGDGGAGAXGGGDGXXGAGAAAGGXADGGAXGFGXGFGXAAGFXGADXXXGGGAGDXADGDXXAGGXGAGAAGGAXGGXGXAFGDGGAAXGDXGXAXAAFXGXXGAGXAGDXADXDGAAXXAADGGFGFXAFXXDFFDGXXXAGXGXFDAXADDAGGADDAFDDXFGAXAADDAGADFDXADGGGDFAXXGXAAXDADDDXGXGADDDAAGDADADAGFXXAAGGADXDFDAADADDDGFDADAGFDAAXADDXGDXDFFAXFDGXGDAXGDFGAAFGAGXGAADGFGXGDFAXXDGFDDDAGADXAGXGGDGADFAGDAGADXDFADXDAGGDDDAXDXDDDFADXXADDFAGAAGGDDDXADXXFFDDAGAGDDDDXDADXGXAAXGFFDAGDDDFGAFXXGDAFGFGAXADGDDDGDXGFDXXGFADAGADADDFAFADAAADDDDAAGDDADDGGAXDXXDXXAXGFXDXDADFXAXFGAXAGADXAAGXDXGDFDAAAAAAAGAGGGAXXAAXGGDXGFFAAAAXDDGAXFADXXAXFGXXDXXGGFFDGXFAGAAGAXDFAAXAGXDDADGGFAFAFGDXAXDXGXADGDGDFGAGADXXFDGFDAADGXDXGAXADAXAAAXFGGGAGGGDGDXGDGXGDGAFXGAXGGXFXXAXGAXAGGAGFGGGAFAGGAFXGDADGDGXGAGXXGAAGGXAGGAGAAGGXXDAADXXXGXGDGGGXGGDXXGGAXADGAXXGDXGAXGGFXXDFGGGAAGDGXDGGXXAGDAXGFXXGGGAAAGGXAAAXFGXDGGDAFXXXXGGAGXXGDADDDGAGFADAGAAAXXXADGXXGGGAXXFGGGFGXAAXDAGFGADDFXFDXFDGAAGADGGXXDGXXAGXGGGXGFAFXAXAFGD"
-};
 
 const findInGrid = function (grid, rank) {
    for (let row = 0; row < grid.length; row++) {
@@ -103,7 +101,7 @@ const Demo = DragDropContext(HTML5Backend)(connect(BareDemoSelector)(BareDemo));
    };
 */
 
-export function run (container) {
+export function run (container, initialTask) {
    const store = createStore(reducer);
    store.dispatch({type: 'Task.Init', task: initialTask});
    ReactDOM.render(<Provider store={store}><Demo/></Provider>, container);

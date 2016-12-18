@@ -474,7 +474,7 @@ character substitutions tables
 .task-hints.panel {
   border-color: #C82829;
 }
-.task-hints .panel-heading {
+.task-hints > .panel-heading {
   background-color: #C82829;
 }
 .task-hints .panel-heading .code-var, .task-hints .panel-heading .code-var {
@@ -1076,8 +1076,3 @@ iframe.task {
 .dev-buttons button:focus {
   background-color: #E2D9C8;
 }
-
-@import "rc-tooltip/assets/bootstrap";
-@import "playfair/style.css";
-@import "adfgx/style.css";
-@import "round4/style.css";
