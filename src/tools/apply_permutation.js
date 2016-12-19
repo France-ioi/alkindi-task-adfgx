@@ -61,7 +61,7 @@ export const compute = function (state, scope) {
    scope.outputText = bigramsFromText(permText);
 };
 
-export default tool => {
-   tool.Component = Component;
-   tool.compute = compute;
+export default function ApplyPermutation () {
+   this.Component = Component;
+   this.compute = compute;
 };

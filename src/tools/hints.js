@@ -514,20 +514,21 @@ const noSelection = {
    selectedDecipherPos: undefined
 };
 
-export default tool => {
-   tool.Component = Component;
-   tool.compute = compute;
-   tool.dump = function (state) {
+export default function Hints () {
+   this.Component = Component;
+   this.compute = compute;
+   this.dump = function (state) {
       const {outputSubstitutionVariable, outputPermutationVariable} = state;
       return {outputSubstitutionVariable, outputPermutationVariable};
    };
-   tool.load = function (dump) {
+   this.load = function (dump) {
       return {...dump, ...noSelection, hintStep: undefined, hintQuery: undefined, hintObtained: false};
    };
-   tool.reducers.QueryHint = function (state, action) {
+   this.reducers = {};
+   this.reducers.QueryHint = function (state, action) {
       return {...state, hintStep: 'waiting'};
    };
-   tool.reducers.HintQueryResult = function (state, action) {
+   this.reducers.HintQueryResult = function (state, action) {
       return {
          ...state,
          ...noSelection,
@@ -535,10 +536,10 @@ export default tool => {
          hintStep: action.error ? 'error' : 'received'
       };
    };
-   tool.reducers.QueryHintCancelled = function (state, action) {
+   this.reducers.QueryHintCancelled = function (state, action) {
       return {...state, ...noSelection, hintQuery: undefined, hintStep: undefined};
    };
-   tool.reducers.SelectInGrid = function (state, action) {
+   this.reducers.SelectInGrid = function (state, action) {
       const {row, col, bigram, rank} = action;
       return {
          ...state,
@@ -555,7 +556,7 @@ export default tool => {
          hintObtained: rank !== null
       };
    };
-   tool.reducers.SelectInAlphabet = function (state, action) {
+   this.reducers.SelectInAlphabet = function (state, action) {
       const {letterRank, letter, bigram} = action
       return {
          ...state,
@@ -570,7 +571,7 @@ export default tool => {
          hintObtained: bigram !== null
       };
    };
-   tool.reducers.SelectInDecipherPerm = function (state, action) {
+   this.reducers.SelectInDecipherPerm = function (state, action) {
       const {fromLine, toLine} = action;
       return {
          ...state,
@@ -584,7 +585,7 @@ export default tool => {
          hintObtained: toLine !== null
       };
    };
-   tool.reducers.SelectInCipherPerm = function (state, action) {
+   this.reducers.SelectInCipherPerm = function (state, action) {
       const {fromLine, toLine} = action;
       return {
          ...state,

@@ -54,7 +54,7 @@ export const compute = function (state, scope) {
    scope.outputText = {alphabet, cells};
 };
 
-export default tool => {
-   tool.Component = Component;
-   tool.compute = compute;
+export default function TextInput () {
+   this.Component = Component;
+   this.compute = compute;
 };

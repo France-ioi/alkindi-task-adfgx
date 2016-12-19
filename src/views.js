@@ -2,6 +2,10 @@ import React from 'react';
 import {Alert, Button} from 'react-bootstrap';
 import EpicComponent from 'epic-component';
 
+const assetUrl = function (name) {
+   return System.normalizeSync(`./assets/${name}`);
+};
+
 export const TabHeader = EpicComponent(self => {
    self.render = function () {
       return (
@@ -109,7 +113,6 @@ export const AnswerDialog = EpicComponent(self => {
 
 });
 
-
 export const Answer = EpicComponent(self => {
 
    self.render = function () {
@@ -125,7 +128,6 @@ export const Answer = EpicComponent(self => {
    };
 
 });
-
 
 export const Feedback = EpicComponent(self => {
 
@@ -173,12 +175,7 @@ export const Feedback = EpicComponent(self => {
 
 });
 
-
 export const Task = EpicComponent(self => {
-
-   const assetUrl = function (name) {
-      return System.normalizeSync(`./assets/${name}`);
-   };
 
    self.render = function () {
       const {task} = self.props;

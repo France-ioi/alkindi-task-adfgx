@@ -41,7 +41,7 @@ export const compute = function (state, scope) {
    scope.outputText = {alphabet: substitution.targetAlphabet, cells: targetCells};
 };
 
-export default tool => {
-   tool.Component = Component;
-   tool.compute = compute;
+export default function ApplySubstitution () {
+   this.Component = Component;
+   this.compute = compute;
 };

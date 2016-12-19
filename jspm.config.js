@@ -33,7 +33,130 @@ SystemJS.config({
     "alkindi-task-adfgx": {
       "main": "main.js",
       "format": "esm"
+    },
+    "npm:collections@5.0.5": {
+      "map": {
+        "weak-map": "npm:weak-map@1.0.5"
+      }
+    },
+    "npm:postcss@5.2.6": {
+      "map": {
+        "supports-color": "npm:supports-color@3.1.2",
+        "source-map": "npm:source-map@0.5.6",
+        "chalk": "npm:chalk@1.1.3",
+        "js-base64": "npm:js-base64@2.1.9"
+      }
+    },
+    "npm:supports-color@3.1.2": {
+      "map": {
+        "has-flag": "npm:has-flag@1.0.0"
+      }
+    },
+    "github:mobilexag/plugin-sass@0.5.1": {
+      "map": {
+        "postcss": "npm:postcss@5.2.6",
+        "autoprefixer": "npm:autoprefixer@6.5.4",
+        "css-asset-copier": "npm:css-asset-copier@1.0.2",
+        "sass.js": "npm:sass.js@0.9.13",
+        "css-url-rewriter-ex": "npm:css-url-rewriter-ex@1.0.6",
+        "reqwest": "github:ded/reqwest@2.0.5",
+        "url": "npm:jspm-nodelibs-url@0.2.0",
+        "fs": "npm:jspm-nodelibs-fs@0.2.0",
+        "path": "npm:jspm-nodelibs-path@0.2.0"
+      }
+    },
+    "npm:css-asset-copier@1.0.2": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.20.0",
+        "fs-extra": "npm:fs-extra@0.30.0"
+      }
+    },
+    "npm:autoprefixer@6.5.4": {
+      "map": {
+        "postcss": "npm:postcss@5.2.6",
+        "browserslist": "npm:browserslist@1.4.0",
+        "normalize-range": "npm:normalize-range@0.1.2",
+        "num2fraction": "npm:num2fraction@1.2.2",
+        "caniuse-db": "npm:caniuse-db@1.0.30000597",
+        "postcss-value-parser": "npm:postcss-value-parser@3.3.0"
+      }
+    },
+    "npm:css-url-rewriter-ex@1.0.6": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.20.0"
+      }
+    },
+    "npm:fs-extra@0.30.0": {
+      "map": {
+        "graceful-fs": "npm:graceful-fs@4.1.11",
+        "path-is-absolute": "npm:path-is-absolute@1.0.1",
+        "jsonfile": "npm:jsonfile@2.4.0",
+        "klaw": "npm:klaw@1.3.1",
+        "rimraf": "npm:rimraf@2.5.4"
+      }
+    },
+    "npm:browserslist@1.4.0": {
+      "map": {
+        "caniuse-db": "npm:caniuse-db@1.0.30000597"
+      }
+    },
+    "npm:rimraf@2.5.4": {
+      "map": {
+        "glob": "npm:glob@7.1.1"
+      }
+    },
+    "npm:glob@7.1.1": {
+      "map": {
+        "inherits": "npm:inherits@2.0.3",
+        "minimatch": "npm:minimatch@3.0.3",
+        "path-is-absolute": "npm:path-is-absolute@1.0.1",
+        "fs.realpath": "npm:fs.realpath@1.0.0",
+        "inflight": "npm:inflight@1.0.6",
+        "once": "npm:once@1.4.0"
+      }
+    },
+    "npm:inflight@1.0.6": {
+      "map": {
+        "once": "npm:once@1.4.0",
+        "wrappy": "npm:wrappy@1.0.2"
+      }
+    },
+    "npm:once@1.4.0": {
+      "map": {
+        "wrappy": "npm:wrappy@1.0.2"
+      }
+    },
+    "github:France-ioi/alkindi-task-lib@master": {
+      "map": {
+        "classnames": "npm:classnames@2.2.5",
+        "epic-component": "npm:epic-component@0.3.1",
+        "array.prototype.fill": "npm:array.prototype.fill@1.0.1",
+        "babel-runtime": "npm:babel-runtime@6.20.0",
+        "es5-shim": "npm:es5-shim@4.5.9",
+        "epic-linker": "npm:epic-linker@1.0.6",
+        "es5-sham-ie8": "npm:es5-sham-ie8@1.0.1",
+        "html5shiv": "npm:html5shiv@3.7.3",
+        "rc-tooltip": "npm:rc-tooltip@3.4.2",
+        "es6-promise": "npm:es6-promise@4.0.5",
+        "es6-shim": "npm:es6-shim@0.35.2",
+        "object.assign": "npm:object.assign@4.0.4"
+      }
     }
+  },
+  map: {
+    "France-ioi/alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
+    "array.prototype.fill": "npm:array.prototype.fill@1.0.1",
+    "collections": "npm:collections@5.0.5",
+    "es5-sham-ie8": "npm:es5-sham-ie8@1.0.1",
+    "es5-shim": "npm:es5-shim@4.5.9",
+    "es6-promise": "npm:es6-promise@4.0.5",
+    "es6-shim": "npm:es6-shim@0.35.2",
+    "html5shiv": "npm:html5shiv@3.7.3",
+    "object.assign": "npm:object.assign@4.0.4",
+    "postcss": "npm:postcss@5.2.6",
+    "rc-tooltip": "npm:rc-tooltip@3.4.2",
+    "sass": "github:mobilexag/plugin-sass@0.5.1",
+    "systemjs-plugin-babel": "npm:systemjs-plugin-babel@0.0.17"
   }
 });
 
@@ -45,41 +168,31 @@ SystemJS.config({
     "local:*.json"
   ],
   map: {
-    "France-ioi/alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
-    "alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
+    "alkindi-task-lib": "local:alkindi-task-lib@1.0.1",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
-    "array.prototype.fill": "npm:array.prototype.fill@1.0.1",
     "assert": "npm:jspm-nodelibs-assert@0.2.0",
     "babel-runtime": "npm:babel-runtime@6.20.0",
     "buffer": "npm:jspm-nodelibs-buffer@0.2.1",
     "child_process": "npm:jspm-nodelibs-child_process@0.2.0",
     "classnames": "npm:classnames@2.2.5",
-    "collections": "npm:collections@5.0.5",
     "constants": "npm:jspm-nodelibs-constants@0.2.0",
     "crypto": "npm:jspm-nodelibs-crypto@0.2.0",
     "deepmerge": "npm:deepmerge@1.3.1",
     "domain": "npm:jspm-nodelibs-domain@0.2.0",
     "epic-component": "npm:epic-component@0.3.1",
     "epic-linker": "npm:epic-linker@1.0.6",
-    "es5-sham-ie8": "npm:es5-sham-ie8@1.0.1",
-    "es5-shim": "npm:es5-shim@4.5.9",
-    "es6-promise": "npm:es6-promise@4.0.5",
-    "es6-shim": "npm:es6-shim@0.35.2",
     "events": "npm:jspm-nodelibs-events@0.2.0",
     "flatten": "npm:flatten@1.0.2",
     "font-awesome": "npm:font-awesome@4.7.0",
     "fs": "npm:jspm-nodelibs-fs@0.2.0",
-    "html5shiv": "npm:html5shiv@3.7.3",
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
     "intersperse": "npm:intersperse@1.0.0",
     "node-range": "npm:node-range@0.1.0",
-    "object.assign": "npm:object.assign@4.0.4",
     "os": "npm:jspm-nodelibs-os@0.2.0",
     "path": "npm:jspm-nodelibs-path@0.2.1",
     "process": "npm:jspm-nodelibs-process@0.2.0",
     "querystring": "npm:jspm-nodelibs-querystring@0.2.0",
-    "rc-tooltip": "npm:rc-tooltip@3.4.2",
     "react": "npm:react@15.4.1",
     "react-bootstrap": "npm:react-bootstrap@0.30.7",
     "react-dnd": "npm:react-dnd@2.1.4",
@@ -381,11 +494,6 @@ SystemJS.config({
         "querystring": "npm:querystring@0.2.0"
       }
     },
-    "npm:collections@5.0.5": {
-      "map": {
-        "weak-map": "npm:weak-map@1.0.5"
-      }
-    },
     "npm:object.assign@4.0.4": {
       "map": {
         "object-keys": "npm:object-keys@1.0.11",
@@ -562,20 +670,20 @@ SystemJS.config({
         "dom-align": "npm:dom-align@1.5.2"
       }
     },
-    "github:France-ioi/alkindi-task-lib@master": {
+    "local:alkindi-task-lib@1.0.1": {
       "map": {
         "classnames": "npm:classnames@2.2.5",
-        "epic-component": "npm:epic-component@0.3.1",
-        "array.prototype.fill": "npm:array.prototype.fill@1.0.1",
-        "babel-runtime": "npm:babel-runtime@6.20.0",
+        "es6-promise": "npm:es6-promise@4.0.5",
         "es5-shim": "npm:es5-shim@4.5.9",
         "epic-linker": "npm:epic-linker@1.0.6",
         "es5-sham-ie8": "npm:es5-sham-ie8@1.0.1",
-        "html5shiv": "npm:html5shiv@3.7.3",
-        "rc-tooltip": "npm:rc-tooltip@3.4.2",
-        "es6-promise": "npm:es6-promise@4.0.5",
+        "array.prototype.fill": "npm:array.prototype.fill@1.0.2",
+        "epic-component": "npm:epic-component@0.3.1",
+        "babel-runtime": "npm:babel-runtime@6.20.0",
+        "object.assign": "npm:object.assign@4.0.4",
         "es6-shim": "npm:es6-shim@0.35.2",
-        "object.assign": "npm:object.assign@4.0.4"
+        "html5shiv": "npm:html5shiv@3.7.3",
+        "rc-tooltip": "npm:rc-tooltip@3.4.2"
       }
     }
   }

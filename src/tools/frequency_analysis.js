@@ -204,10 +204,11 @@ export const compute = function (state, scope) {
    };
 };
 
-export default tool => {
-   tool.Component = Component;
-   tool.compute = compute;
-   tool.reducers.SwapPairs = function (state, action) {
+export default function FrequencyAnalysis () {
+   this.Component = Component;
+   this.compute = compute;
+   this.reducers = {};
+   this.reducers.SwapPairs = function (state, action) {
       const {editedPairs} = state;
       const {key1, value1, key2, value2} = action;
       const pairs = state
@@ -216,7 +217,7 @@ export default tool => {
          editedPairs: {...editedPairs, [key1]: value1, [key2]: value2}
       };
    };
-   tool.reducers.Reset = function (state, action) {
+   this.reducers.Reset = function (state, action) {
       return {...state, editedPairs: {}};
    };
 };

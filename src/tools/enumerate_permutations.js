@@ -210,24 +210,25 @@ export const compute = function (state, scope) {
       scope.outputPermutation = selectedPermutation.qualified;
 };
 
-export default tool => {
-   tool.Component = Component;
-   tool.compute = compute;
-   tool.reducers.SelectPermutation = function (state, action) {
+export default function EnumeratePermutation () {
+   this.Component = Component;
+   this.compute = compute;
+   this.reducers = {};
+   this.reducers.SelectPermutation = function (state, action) {
       const {key} = action;
       return {...state, selectedPermutationKey: key};
    };
-   tool.reducers.SetSortBy = function (state, action) {
+   this.reducers.SetSortBy = function (state, action) {
       const {key} = action;
       return {...state, sortBy: key};
    };
-   tool.reducers.SetFavorited = function (state, action) {
+   this.reducers.SetFavorited = function (state, action) {
       const {key, favorited} = action;
       const infos = state.permutationInfos;
       const value = {...infos[key], favorited};
       return {...state, permutationInfos: {...infos, [key]: value}};
    };
-   tool.reducers.SetShowOnlyFavorited = function (state, action) {
+   this.reducers.SetShowOnlyFavorited = function (state, action) {
       const {key, value} = action;
       return {...state, showOnlyFavorited: value};
    };

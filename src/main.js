@@ -1,16 +1,10 @@
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Alert, Button} from 'react-bootstrap';
-import {createStore} from 'redux';
-import {Provider, connect} from 'react-redux';
-import {DragDropContext} from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import {WorkspaceManager} from 'alkindi-task-lib';
-import EpicComponent from 'epic-component';
+import {defineSelector, defineView, include} from 'epic-linker';
+import {hostTask} from 'alkindi-task-lib';
+import WorkspaceBuilder from 'alkindi-task-lib/workspace';
 
-import reducer from './reducer';
-import {Task} from './views';
+import {Task, AnswerDialog} from './views';
+import {setupTools, makeRootScope} from './tools/index';
 
 import 'normalize.css';
 import 'font-awesome/css/font-awesome.css';
@@ -19,38 +13,31 @@ import 'rc-tooltip/assets/bootstrap.css';
 import './platform.css';
 import './style.css';
 
-const AppSelector = function (state) {
-   const {score, task, workspace, unsavedChanges, rootScope} = state;
-   return {score, task, workspace, unsavedChanges, rootScope};
-};
+export function run (options) {
+   hostTask(options, function* (deps) {
 
-const App = EpicComponent(self => {
+      /* The Task view displays the task to the contestant.
+         The standard 'TaskSelector' selector supplies the task object as a
+         'task' prop. */
+      yield defineView('Task', 'TaskSelector', Task);
 
-   self.render = function () {
-      console.log(self.props);
-      const {task, rootScope, workspace, unsavedChanges, dispatch} = self.props;
-      if (!task) {
-         return <p>Task is not loaded.</p>;
-      }
-      return <Task task={task}/>;
-      if (!workspace) {
-         return <p>Workspace not initialized.</p>;
-      }
-      return (
-         <div>
-            {unsavedChanges && <p>There are unsaved changes.</p>}
-            <WorkspaceManager.View workspace={workspace} rootScope={rootScope} dispatch={dispatch}/>
-         </div>
-      );
-   };
+      /* The AnswerDialog view should allow the contestant to enter answers.
+         It should contain a submit button that calls the 'submit' prop when
+         clicked, passing to it a JSON-serializable object containing the
+         answers.
+         The 'feedback' prop will contain task-specific feedback on the most
+         recently submitted answer.
+         If the view detects that the task is completed (based on the feedback,
+         for example when the highest possible score is obtained), it should
+         inform the user and allow them to click a button that calls the
+         'onSuccess' prop. */
+      yield defineView('AnswerDialog', 'AnswerDialogSelector', AnswerDialog);
 
-});
+      /* Build and link the workspace using the tools setup and root-scope
+         building function.  See workspace.js in alkindi-task-lib if you want
+         to write a different workspace implementation.
+      */
+      yield include(WorkspaceBuilder(setupTools, makeRootScope));
 
-const WrappedApp = DragDropContext(HTML5Backend)(connect(AppSelector)(App));
-
-export function run (container, initialTask) {
-   console.log('reducer', reducer);
-   const store = createStore(reducer);
-   store.dispatch({type: 'Task.Init', task: initialTask});
-   ReactDOM.render(<Provider store={store}><WrappedApp/></Provider>, container);
+   });
 };
