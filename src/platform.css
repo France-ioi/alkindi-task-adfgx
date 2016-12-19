@@ -207,7 +207,7 @@ character substitutions tables
     Interfaces et grilles PlayFair
 
 */
-.panel-heading .code {
+#task .panel-heading .code {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -215,25 +215,25 @@ character substitutions tables
   display: inline-block;
   vertical-align: middle;
 }
-.task-score {
+#task .task-score {
   color: #C82829;
   position: absolute;
   top: 10px;
   right: 15px;
 }
-.task-score > span {
+#task .task-score > span {
   text-transform: uppercase;
   font-weight: bold;
   padding: 4px;
   text-decoration: blink;
 }
-.task-score > span strong {
+#task .task-score > span strong {
   color: #000;
 }
-.task-hints.panel {
+#task .task-hints.panel {
   border-color: #C82829;
 }
-.task-hints > .panel-heading {
+#task .task-hints > .panel-heading {
   background-color: #C82829;
 }
 .task-hints .panel-heading .code-var, .task-hints .panel-heading .code-var {
