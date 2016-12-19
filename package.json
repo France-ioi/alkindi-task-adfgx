@@ -9,7 +9,7 @@
   "scripts": {
     "build": "jspm build src/main.js dist/index.js --minify --format umd --global-name Task",
     "build-dev": "jspm bundle --minify src/main.js - '[src/**/*]' + babel-plugin-transform-react-jsx + css dist/dev-bundle.js",
-    "serve": "http-server .",
+    "serve": "http-server -c-1 .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {},
