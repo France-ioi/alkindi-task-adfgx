@@ -46,6 +46,7 @@ SystemJS.config({
     "github:*/*.json"
   ],
   map: {
+    "rc-tooltip": "npm:rc-tooltip@3.4.2",
     "alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "assert": "npm:jspm-nodelibs-assert@0.2.0",
