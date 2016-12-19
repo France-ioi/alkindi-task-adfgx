@@ -21,7 +21,7 @@
     "name": "alkindi-task-adfgx",
     "main": "main.js",
     "dependencies": {
-      "alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
+      "alkindi-task-lib": "github:France-ioi/alkindi-task-lib@^1.0.2",
       "babel-runtime": "npm:babel-runtime@^6.20.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.7",
       "classnames": "npm:classnames@^2.2.5",
@@ -35,7 +35,7 @@
       "rc-tooltip": "npm:rc-tooltip@^3.4.2",
       "react-bootstrap": "npm:react-bootstrap@^0.30.7",
       "react-dnd-html5-backend": "npm:react-dnd-html5-backend@^2.1.2",
-      "react-redux": "npm:react-redux@^4.4.6"
+      "react-redux": "npm:react-redux@^5.0.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^6.20.0",
@@ -63,7 +63,7 @@
       "process": "npm:jspm-nodelibs-process@^0.2.0",
       "querystring": "npm:jspm-nodelibs-querystring@^0.2.0",
       "react": "npm:react@^15.0.1",
-      "react-dnd": "npm:react-dnd@^2.1.4",
+      "react-dnd": "npm:react-dnd@^2.0.0",
       "react-dom": "npm:react-dom@^15.4.1",
       "redux": "npm:redux@^3.6.0",
       "redux-saga": "npm:redux-saga@^0.12.1",
@@ -105,7 +105,7 @@
           "_stream_transform": "readable-stream/transform"
         }
       },
-      "npm:debug@2.4.1": {
+      "npm:debug@2.4.5": {
         "main": "browser.js",
         "jspmNodeConversion": false,
         "format": "cjs",
