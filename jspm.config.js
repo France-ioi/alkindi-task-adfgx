@@ -6,7 +6,6 @@ SystemJS.config({
     "paths": {
       "npm:": "jspm_packages/npm/",
       "github:": "jspm_packages/github/",
-      "local:": "jspm_packages/local/",
       "alkindi-task-adfgx/": "src/"
     }
   },
@@ -125,22 +124,6 @@ SystemJS.config({
       "map": {
         "wrappy": "npm:wrappy@1.0.2"
       }
-    },
-    "github:France-ioi/alkindi-task-lib@master": {
-      "map": {
-        "classnames": "npm:classnames@2.2.5",
-        "epic-component": "npm:epic-component@0.3.1",
-        "array.prototype.fill": "npm:array.prototype.fill@1.0.1",
-        "babel-runtime": "npm:babel-runtime@6.20.0",
-        "es5-shim": "npm:es5-shim@4.5.9",
-        "epic-linker": "npm:epic-linker@1.0.6",
-        "es5-sham-ie8": "npm:es5-sham-ie8@1.0.1",
-        "html5shiv": "npm:html5shiv@3.7.3",
-        "rc-tooltip": "npm:rc-tooltip@3.4.2",
-        "es6-promise": "npm:es6-promise@4.0.5",
-        "es6-shim": "npm:es6-shim@0.35.2",
-        "object.assign": "npm:object.assign@4.0.4"
-      }
     }
   },
   map: {
@@ -164,11 +147,10 @@ SystemJS.config({
   packageConfigPaths: [
     "npm:@*/*.json",
     "npm:*.json",
-    "github:*/*.json",
-    "local:*.json"
+    "github:*/*.json"
   ],
   map: {
-    "alkindi-task-lib": "local:alkindi-task-lib@1.0.1",
+    "alkindi-task-lib": "github:France-ioi/alkindi-task-lib@master",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "assert": "npm:jspm-nodelibs-assert@0.2.0",
     "babel-runtime": "npm:babel-runtime@6.20.0",
@@ -209,6 +191,22 @@ SystemJS.config({
     "zlib": "npm:jspm-nodelibs-zlib@0.2.2"
   },
   packages: {
+    "github:France-ioi/alkindi-task-lib@master": {
+      "map": {
+        "classnames": "npm:classnames@2.2.5",
+        "epic-component": "npm:epic-component@0.3.1",
+        "array.prototype.fill": "npm:array.prototype.fill@1.0.2",
+        "babel-runtime": "npm:babel-runtime@6.20.0",
+        "es5-shim": "npm:es5-shim@4.5.9",
+        "epic-linker": "npm:epic-linker@1.0.6",
+        "es5-sham-ie8": "npm:es5-sham-ie8@1.0.1",
+        "html5shiv": "npm:html5shiv@3.7.3",
+        "rc-tooltip": "npm:rc-tooltip@3.4.2",
+        "es6-promise": "npm:es6-promise@4.0.5",
+        "es6-shim": "npm:es6-shim@0.35.2",
+        "object.assign": "npm:object.assign@4.0.4"
+      }
+    },
     "npm:react@15.4.1": {
       "map": {
         "fbjs": "npm:fbjs@0.8.6",
@@ -668,22 +666,6 @@ SystemJS.config({
       "map": {
         "rc-util": "npm:rc-util@4.0.2",
         "dom-align": "npm:dom-align@1.5.2"
-      }
-    },
-    "local:alkindi-task-lib@1.0.1": {
-      "map": {
-        "classnames": "npm:classnames@2.2.5",
-        "es6-promise": "npm:es6-promise@4.0.5",
-        "es5-shim": "npm:es5-shim@4.5.9",
-        "epic-linker": "npm:epic-linker@1.0.6",
-        "es5-sham-ie8": "npm:es5-sham-ie8@1.0.1",
-        "array.prototype.fill": "npm:array.prototype.fill@1.0.2",
-        "epic-component": "npm:epic-component@0.3.1",
-        "babel-runtime": "npm:babel-runtime@6.20.0",
-        "object.assign": "npm:object.assign@4.0.4",
-        "es6-shim": "npm:es6-shim@0.35.2",
-        "html5shiv": "npm:html5shiv@3.7.3",
-        "rc-tooltip": "npm:rc-tooltip@3.4.2"
       }
     }
   }
