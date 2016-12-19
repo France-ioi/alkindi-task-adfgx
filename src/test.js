@@ -1,4 +1,6 @@
 
+/* unused file containing test code for obtaining hints */
+
 const findInGrid = function (grid, rank) {
    for (let row = 0; row < grid.length; row++) {
       for (let col = 0; col < grid[row].length; col++) {
@@ -33,5 +35,3 @@ const findInGrid = function (grid, rank) {
        callback();
     }, 200);
  };
-
-// return <Task.Task task={task} assetUrl={assetUrl}/>

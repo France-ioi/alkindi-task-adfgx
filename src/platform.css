@@ -1,3 +1,5 @@
+/* CSS file copied from the 2015 Alkindi platform, should probably be trimmed
+   down and perhaps imported from a separate package shared by all tasks. */
 
 html {
   min-height: 100%;
@@ -40,10 +42,10 @@ hr {
 .selected {
   font-weight: bold;
 }
-/*.panel-heading {
+.panel-heading {
   overflow: hidden;
   text-overflow: ellipsis;
-}*/
+}
 .panel-body {
   position: relative;
 }
@@ -52,49 +54,9 @@ div.section {
   margin-bottom: 20px;
 }
 
-textarea.full-width {
-  width: 100%;
-  max-width: 100%;
-}
-
-table.table {
-  border: 1px solid #777;
-  border-collapse: collapse;
-  width: 100%;
-}
-table.table td,
-table.table th {
-  border: 1px solid #777;
-  padding: 3px 5px;
-}
-table.table input {
-  margin: 3px 0;
-}
-table.table input:focus {
-  box-shadow: 0px 0px 3px #ccc inset;
-}
-table.table .colDate {
-  width: 25%;
-}
-table.table .colScore {
-  text-align: right;
-}
-
 .fa-question-circle {
   color: #0f33ff;
   cursor: pointer;
-}
-#pageFooter {
-  position: absolute;
-  bottom: 0;
-  border-top: 2px solid #ac1a1d;
-  background-color: #f5f5f5;
-  width: 100%;
-  padding: 10px 0;
-  height: 60px;
-}
-#pageFooter .wrapper {
-  padding: 0 10px;
 }
 
 .epic-fail {
@@ -109,25 +71,6 @@ table.table .colScore {
   font-weight: bold;
 }
 
-/* radio buttons with hanging labels */
-.radio-label {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 10px;
-}
-.radio-label label {
-  font-weight: normal;
-}
-.radio-label.radio-checked label {
-  font-weight: bold;
-}
-
-/* Page layout */
-.wrapper {
-  max-width: 880px;
-  min-width: 650px;
-  margin: 0 auto;
-}
 
 .textBlock {
   font-family: "Lucida Console", Monaco, monospace;
@@ -233,11 +176,6 @@ character substitutions tables
   color: #888;
 }
 
-#hint-score {
-  text-align: center;
-  font-weight: bold;
-}
-
 /*
 
  code fragments
@@ -263,185 +201,6 @@ character substitutions tables
   overflow-x: auto;
   overflow-y: hidden;
 }
-
-
-/*
-
- Authentication header layout
-
-*/
-#auth-header {
-  margin-bottom: 10px;
-}
-#auth-header table {
-  border: 0;
-}
-#auth-header table td,
-#auth-header table th {
-  border: 0;
-  padding: 0;
-}
-#header_logo {
-  padding-bottom: 0px;
-  width: 60px;
-}
-#header_logo img {
-  width: 60px;
-}
-#header_score {
-  width: 140px;
-  padding-bottom: 10px;
-}
-#header_time {
-  width: 160px;
-  padding-bottom: 10px;
-}
-#header_button {
-  width: 310px;
-  text-align: right;
-  padding-bottom: 10px;
-}
-#header_button input[type=button] {
-  font-size: 20px;
-  font-weight: bold;
-  padding: 8px;
-}
-
-
-/*
-
- General header layout
-
-*/
-#header {
-  border-bottom: 1px solid #B47238;
-  margin-bottom: 10px;
-}
-#header .wrapper {
-  display: table;
-  width: 100%;
-}
-#header-logo {
-  width: 60px;
-}
-#navigation {
-  display: table-cell;
-  vertical-align: bottom;
-  margin: 0;
-  padding: 0;
-}
-#navigation li {
-  display: inline-block;
-  border: 1px solid #777;
-  border-bottom: none;
-  background-color: #F4D5D5;
-  margin: 0 3px;
-  -webkit-border-top-left-radius: 5px;
-     -moz-border-top-left-radius: 5px;
-       -o-border-top-left-radius: 5px;
-          border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-     -moz-border-top-right-radius: 5px;
-       -o-border-top-right-radius: 5px;
-          border-top-right-radius: 5px;
-}
-#navigation li.actif {
-  background-color: #ac1a1d;;
-}
-#navigation li.indisponible {
-  background-color: #F4D5D5;
-}
-#navigation li.indisponible a {
-  color: #777;
-}
-#navigation li.indisponible a:hover {
-  text-decoration: none;
-}
-#navigation li a {
-  display: block;
-  cursor: pointer;
-  font-weight: normal;
-  color: #000;
-  padding: 8px;
-  line-height: 1.2em;
-  text-align: center;
-}
-#navigation li.actif a {
-  color: #fff;
-}
-#logout {
-  display: table-cell;
-  vertical-align: bottom;
-  text-align: right;
-}
-#logout > span {
-  display: block;
-}
-
-.tabButton {
-  display: table-cell;
-  width: 250px;
-  font-size: 16px;
-  text-decoration: none;
-  color: #000;
-  padding: 10px;
-  border: 1px solid #333;
-  text-align: center;
-  font-weight: normal;
-  background-color: #f0ede9;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-       -o-border-radius: 5px;
-          border-radius: 5px;
-}
-.tabButton:hover {
-  background-color: #d0cdc9;
-  font-weight: bold;
-}
-.btn-tool {
-  display: inline-block;
-  font-size: 16px;
-  text-decoration: none;
-  color: #000;
-  margin: 3px 0;
-  padding: 3px 10px;
-  border: 1px solid #333;
-  text-align: center;
-  font-weight: normal;
-  background-color: #f0ede9;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-       -o-border-radius: 5px;
-          border-radius: 5px;
-}
-.btn-tool:hover,
-.btn-tool:focus {
-  background-color: #d0cdc9;
-}
-.general_title {
-  font-family: "Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
-  font-size: 40px;
-  text-transform: uppercase;
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
-  padding-top: 30px;
-  color: #736451;
-  margin-bottom: 10px;
-  text-align: left;
-}
-.general_subtitle {
-  font-family: "Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
-  font-size: 24px;
-  text-transform: uppercase;
-  text-align: left;
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
-  color: #000000;
-  border-bottom: 1px solid #eeeeee;
-}
-
 
 /*
 
@@ -867,83 +626,6 @@ td .bigramLetter {
   margin: 3px 0;
 }
 
-
-/*
-
- Historique tab
-
-*/
-.revision-list {
-  margin-top: 1em;
-}
-.revision-list td:first-child {
-  width: 1em;
-}
-.revision-list tr.selected {
-  background-color: #333;
-  color: #fff;
-}
-.revision-list a.cell-link {
-  display: block;
-  color: #000;
-  font-weight: inherit;
-}
-.revision-list .selected a.cell-link {
-  color: #fff;
-}
-
-/*
-
- Team tab
-
-*/
-
-.team-code {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 20px;
-  font-weight: bold;
-}
-p.team-score {
-  font-size: 18px;
-}
-span.team-score {
-  color: #ac1a1d;
-  font-size: 24px;
-}
-
-/*
-
- Attempts tab -- access codes
-
-*/
-.access-code-block {
-  text-align: center;
-  margin: 15px 0;
-}
-.access-code {
-  margin-right: 20px;
-  vertical-align: middle;
-}
-.access-code .code, td.unlocked-code {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 20px;
-  font-weight: bold;
-  color: #080;
-}
-td.access-code input {
-  height: 26px;
-}
-td.access-code button {
-  height: 26px;
-  vertical-align: bottom;
-  margin-bottom: 3px;
-  line-height: 1;
-}
-td.access-code i {
-  color: #080;
-}
-
-
 /*
 
 Task tab
@@ -953,126 +635,4 @@ Task tab
   white-space: pre-wrap;
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 16px;
-}
-iframe.task {
-  width: 100%;
-  height: 500px;
-}
-
-/** Gruüik */
-
-.noRowsMessage {
-  font-style: italic;
-}
-
-.answer-list .rowIsSubmitted {
-  background-color: #ffc;
-}
-.answer-list .colScore {
-  text-align: right;
-}
-.answer-list .rowIsSubmitted .colScore {
-  font-size: 120%;
-}
-
-/* Timeline */
-
-.timeline {
-  border: 1px solid #777;
-  padding: 10px;
-  margin: 10px 0;
-  position: relative;
-}
-.timelineCurrent {
-  background-color: #FEFFC9;
-}
-.timelineCurrent .timelineTitle {
-  font-weight: bold;
-}
-.timelineSteps > div {
-  display: inline-block;
-  background-color: #F4D5D5;
-  padding: 0 20px 0 60px;
-  position: relative;
-  line-height: 76px;
-  font-weight: bold;
-}
-.timelineSteps > div::before,
-.timelineSteps > div::after {
-  content: "\f0da";
-  font-family: FontAwesome;
-  font-size: 133px;
-  font-weight: normal;
-  position: absolute;
-  color: #F4D5D5;
-  right: -42px;
-  z-index: 1;
-  top: 1px;
-}
-.timelineSteps > div::before {
-  color: #fff;
-  right: -47px;
-  top: 1px;
-}
-.timelineSteps > div:first-child {
-  padding-left: 25px;
-}
-.timelineSteps > div:last-child::before {
-  content: "";
-}
-.timelineSteps .active {
-  background-color: #eee;
-}
-.timelineSteps > div.active::after {
-  color: #eee;
-}
-.timelineInfo {
-  background-color: #eee;
-}
-.timelinePast .timelineInfo {
-  background-color: transparent;
-}
-.timelineInfoContent {
-  padding: 10px;
-  display: block;
-}
-.timeline-unavailable .timelineSteps > div {
-  color: #e7e7e7;
-  background-color: #888;
-}
-.timeline-unavailable .timelineSteps > div::after {
-  color: #888;
-}
-
-/*
-
- Dev elements
-
-*/
-.dev {
-  color: #4f4;
-}
-.dev-buttons {
-  border-bottom: 1px solid #333;
-  padding: 3px;
-}
-.dev-buttons button {
-  display: table-cell;
-  font-size: 16px;
-  text-decoration: none;
-  color: #000;
-  margin: 3px 0;
-  padding: 3px 10px;
-  border: 1px solid #333;
-  text-align: center;
-  font-weight: normal;
-  background-color: #F0E9D8;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-       -o-border-radius: 5px;
-          border-radius: 5px;
-}
-.dev-buttons button:hover,
-.dev-buttons button:focus {
-  background-color: #E2D9C8;
 }

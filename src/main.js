@@ -3,7 +3,8 @@ import {defineSelector, defineView, include} from 'epic-linker';
 import {hostTask} from 'alkindi-task-lib';
 import WorkspaceBuilder from 'alkindi-task-lib/workspace';
 
-import {Task, AnswerDialog} from './views';
+import Task from './task';
+import AnswerDialog from './answer_dialog';
 import {setupTools, makeRootScope} from './tools/index';
 
 import 'normalize.css';
