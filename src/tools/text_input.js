@@ -1,8 +1,8 @@
 import React from 'react';
-import EpicComponent from 'epic-component';
-import {Python, Variables} from 'alkindi-task-lib/ui';
-
-import {cellsFromString, renderText} from './common';
+import {connect} from 'react-redux';
+import update from 'immutability-helper';
+import {Python, Variables} from '../ui';
+import {cellsFromString, renderText} from '../utils';
 
 /*
 
@@ -21,40 +21,83 @@ Scope outputs:
 
 */
 
-export const Component = EpicComponent(self => {
 
-   self.render = function() {
-      const {outputTextVariable} = self.props.state;
-      const {text, outputText} = self.props.scope;
-      const inputVars = [];
-      const outputVars = [{label: "Texte chiffré", name: outputTextVariable}];
-      return (
-         <div className='panel panel-default'>
-            <div className='panel-heading'>
-               <span className='code'>
-                  <Python.Assign>
-                     <Python.Var name={outputTextVariable}/>
-                     <Python.StrLit value={text}/>
-                  </Python.Assign>
-               </span>
-            </div>
-            <div className='panel-body'>
-               {false && <Variables inputVars={inputVars} outputVars={outputVars} />}
-               <div className='adfgx-text-input'>{renderText(outputText)}</div>
-            </div>
-         </div>
-      );
-   };
 
-});
+class TextInput extends React.PureComponent {
 
-export const compute = function (state, scope) {
-   const {alphabet, text} = scope;
-   const cells = cellsFromString(text, alphabet);
-   scope.outputText = {alphabet, cells};
-};
+  renderInstructionPython = () => {
+    const {outputTextVariable, text} = this.props;
+    return (
+      <Python.Assign>
+        <Python.Var name={outputTextVariable} />
+        <Python.StrLit value={text} />
+      </Python.Assign>
+    );
+  }
 
-export default function TextInput () {
-   this.Component = Component;
-   this.compute = compute;
+  render () {
+    const {outputTextVariable, outputText} = this.props;
+    const inputVars = [];
+    const outputVars = [{label: "Texte chiffré", name: outputTextVariable}];
+    return (
+      <div className='panel panel-default'>
+        <div className='panel-heading'>
+          <span className='code'>
+            {this.renderInstructionPython()}
+          </span>
+        </div>
+        <div className='panel-body'>
+          { <Variables inputVars={inputVars} outputVars={outputVars} />}
+          <div className='adfgx-text-input'>{renderText(outputText)}</div>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+
+function TextInputSelector (state) {
+  return state.textInput;
+}
+
+function taskInitReducer (state, _action) {
+  const {adfgxAlphabet: alphabet, cipheredText: text} = state;
+  const cells = cellsFromString(text, alphabet);
+  const outputText = {alphabet, cells};
+
+  return update(state, {
+    textInput: {
+      $set: {
+        outputTextVariable: "texteChiffré",
+        outputText: outputText
+      }
+    }
+  });
+}
+
+function lateReducer (state) {
+  if (state.taskReady) {
+    const {adfgxAlphabet: alphabet} = state;
+    const {text} = state.textInput;
+    const cells = cellsFromString(text, alphabet);
+    const outputText = {alphabet, cells};
+
+    state = update(state, {
+      textInput: {
+        outputText: {$set: outputText},
+      }
+    });
+  }
+  return state;
+}
+
+export default {
+  actionReducers: {
+    taskInit: taskInitReducer,
+  },
+  views: {
+    TextInput: connect(TextInputSelector)(TextInput)
+  },
+  // lateReducer
 };

@@ -1,67 +1,125 @@
 import React from 'react';
-import EpicComponent from 'epic-component';
-import classnames from 'classnames';
-import {Python, Variables} from 'alkindi-task-lib/ui';
+import {connect} from 'react-redux';
+import update from 'immutability-helper';
+import {Python} from '../ui';
 
-import {bigramsFromText, applyPermutation, renderCell} from './common';
+import {bigramsFromText, applyPermutation, renderCell} from '../utils';
 
-export const Component = EpicComponent(self => {
 
-   const renderBigram = function (key, bigram, halfabet) {
-      return (
-         <div key={key} className="adfgx-bigram">
-            {renderCell(0, bigram.c0, halfabet)}
-            {renderCell(1, bigram.c1, halfabet)}
-         </div>
-      );
-   };
+class ApplyPermutation extends React.PureComponent {
 
-   const renderText = function (text) {
-      const {cells, halfabet} = text;
-      const columns = [];
-      let column = [];
-      cells.forEach(function (bigram, iBigram) {
-         column.push(renderBigram(column.length, bigram, halfabet));
-         if (column.length === 3) {
-            columns.push(<div key={columns.length} className="adfgx-column">{column}</div>);
-            column = [];
-         }
-      });
-      return <div className='adfgx-columns'>{columns}</div>;
-   };
+  renderBigram (key, bigram, halfabet) {
+    return (
+      <div key={key} className="adfgx-bigram">
+        {renderCell(0, bigram.c0, halfabet)}
+        {renderCell(1, bigram.c1, halfabet)}
+      </div>
+    );
+  }
 
-   self.render = function() {
-      const {inputPermutationVariable, inputCipheredTextVariable, outputTextVariable} = self.props.state;
-      const {alphabet, outputText} = self.props.scope;
-      return (
-         <div className='panel panel-default'>
-            <div className='panel-heading'>
-               <span className='code'>
-                  <Python.Assign>
-                     <Python.Var name={outputTextVariable}/>
-                     <Python.Call name="appliquePermutation">
-                        <Python.Var name={inputPermutationVariable}/>
-                        <Python.Var name={inputCipheredTextVariable}/>
-                     </Python.Call>
-                  </Python.Assign>
-               </span>
-            </div>
-            <div className='panel-body'>
-               {renderText(outputText, alphabet)}
-            </div>
-         </div>
-      );
-   };
+  renderText = () => {
+    const {cells, halfabet} = this.props.outputText;
+    const columns = [];
+    let column = [];
+    cells.forEach((bigram, _iBigram) => {
+      column.push(this.renderBigram(column.length, bigram, halfabet));
+      if (column.length === 3) {
+        columns.push(<div key={columns.length} className="adfgx-column">{column}</div>);
+        column = [];
+      }
+    });
+    return <div className='adfgx-columns'>{columns}</div>;
+  }
 
-});
+  renderInstructionPython = () => {
+    const {inputPermutationVariable, inputCipheredTextVariable, outputTextVariable} = this.props;
+    return (
+      <Python.Assign>
+        <Python.Var name={outputTextVariable} />
+        <Python.Call name="appliquePermutation">
+          <Python.Var name={inputPermutationVariable} />
+          <Python.Var name={inputCipheredTextVariable} />
+        </Python.Call>
+      </Python.Assign>
+    );
+  }
 
-export const compute = function (state, scope) {
-   const {permutation, cipheredText, adfgxAlphabet} = scope;
-   const permText = permutation ? applyPermutation(cipheredText, permutation) : cipheredText;
-   scope.outputText = bigramsFromText(permText);
+  render () {
+    return (
+      <div className='panel panel-default'>
+        <div className='panel-heading'>
+          <span className='code'>
+            {this.renderInstructionPython()}
+          </span>
+        </div>
+        <div className='panel-body'>
+          {this.renderText()}
+        </div>
+      </div>
+    );
+  }
+}
+
+
+function ApplyPermutationSelector (state) {
+  return state.applyPermutation;
+}
+
+function taskInitReducer (state, _action) {
+  return update(state, {
+    applyPermutation: {
+      $set: {
+        inputPermutationVariable: 'permutationCourante',
+        inputCipheredTextVariable: 'texteChiffré',
+        outputTextVariable: 'texteAprèsPermutation'
+      }
+    }
+  });
+}
+
+
+const shouldRun = (state, action) => {
+  const {
+    taskInit, taskRefresh,
+    selectPermutation, setSortBy, setFavorited, setShowOnlyFavorited,
+  } = state.actions;
+
+  switch (action.type) {
+    case taskInit:
+    case taskRefresh:
+    case selectPermutation:
+    case setSortBy:
+    case setFavorited:
+    case setShowOnlyFavorited:
+      return true;
+    default:
+      return false;
+  }
 };
 
-export default function ApplyPermutation () {
-   this.Component = Component;
-   this.compute = compute;
+function lateReducer (state, action) {
+  if (state.taskReady && shouldRun(state, action)) {
+
+    const permutation = state.enumeratePermutations.outputPermutation;
+    const cipheredText = state.textInput.outputText;
+    const permText = permutation ? applyPermutation(cipheredText, permutation) : cipheredText;
+    const outputText = bigramsFromText(permText);
+
+    state = update(state, {
+      applyPermutation: {
+        outputText: {$set: outputText},
+      }
+    });
+  }
+  return state;
+}
+
+export default {
+  actionReducers: {
+    taskInit: taskInitReducer,
+  },
+  views: {
+    ApplyPermutation: connect(ApplyPermutationSelector)(ApplyPermutation)
+  },
+  lateReducer
 };

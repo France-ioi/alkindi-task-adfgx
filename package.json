@@ -1,153 +1,73 @@
 {
   "name": "alkindi-tasks-adfgx",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Alkindi competition task",
   "authors": [
     "Sebastien Carlier <s.carlier@epixode.fr>",
-    "Mathias Hiron <mathias.hiron@gmail.com>"
+    "Mathias Hiron <mathias.hiron@gmail.com>",
+    "Chirantha Dulanjala <k.a.c.dulanjala@gmail.com>"
   ],
   "scripts": {
-    "build": "jspm build src/main.js dist/index.js --minify --format umd --global-name Task",
-    "build-dev": "jspm bundle --minify src/main.js - '[src/**/*]' + babel-plugin-transform-react-jsx + css dist/dev-bundle.js",
-    "serve": "http-server -c-1 .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "watch": "webpack --progress --colors --watch",
+    "lint": "npx eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --hot --inline",
+    "build:dev": "cross-env NODE_ENV=production webpack --progress --colors"
   },
-  "dependencies": {},
+  "license": "ISC",
   "devDependencies": {
-    "http-server": "^0.9.0",
-    "jspm": "^0.17.0-beta.32"
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/node": "^7.0.0-beta.36",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.36",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.36",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "@babel/preset-react": "^7.0.0-beta.36",
+    "@babel/runtime": "^7.0.0-beta.36",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "8.0.0-beta.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^0.28.8",
+    "eslint": "^4.15.0",
+    "file-loader": "^1.1.6",
+    "style-loader": "^0.19.1",
+    "url-loader": "^2.1.0",
+    "webpack": "^3",
+    "webpack-cli": "3.3.0",
+    "webpack-dev-server": "3.0.0",
+    "write-file-webpack-plugin": "^4.5.0"
   },
-  "jspm": {
-    "name": "alkindi-task-adfgx",
-    "main": "main.js",
-    "dependencies": {
-      "alkindi-task-lib": "github:France-ioi/alkindi-task-lib@^1.0.2",
-      "babel-runtime": "npm:babel-runtime@^6.20.0",
-      "bootstrap": "github:twbs/bootstrap@^3.3.7",
-      "classnames": "npm:classnames@^2.2.5",
-      "deepmerge": "npm:deepmerge@^1.3.1",
-      "epic-component": "npm:epic-component@^0.3.1",
-      "epic-linker": "npm:epic-linker@^1.0.6",
-      "font-awesome": "npm:font-awesome@^4.7.0",
-      "flatten": "npm:flatten@^1.0.2",
-      "intersperse": "npm:intersperse@^1.0.0",
-      "node-range": "npm:node-range@^0.1.0",
-      "rc-tooltip": "npm:rc-tooltip@^3.4.2",
-      "react-bootstrap": "npm:react-bootstrap@^0.30.7",
-      "react-dnd-html5-backend": "npm:react-dnd-html5-backend@^2.1.2",
-      "react-redux": "npm:react-redux@^5.0.0"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^6.20.0",
-      "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@^6.8.0",
-      "core-js": "npm:core-js@^2.4.1",
-      "css": "github:systemjs/plugin-css@^0.1.32",
-      "graceful-fs": "npm:graceful-fs@^4.1.6",
-      "module": "npm:jspm-nodelibs-module@^0.2.0",
-      "normalize.css": "github:necolas/normalize.css@^5.0.0",
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.17"
-    },
-    "peerDependencies": {
-      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
-      "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
-      "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
-      "constants": "npm:jspm-nodelibs-constants@^0.2.0",
-      "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
-      "domain": "npm:jspm-nodelibs-domain@^0.2.0",
-      "events": "npm:jspm-nodelibs-events@^0.2.0",
-      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
-      "http": "npm:jspm-nodelibs-http@^0.2.0",
-      "https": "npm:jspm-nodelibs-https@^0.2.0",
-      "os": "npm:jspm-nodelibs-os@^0.2.0",
-      "path": "npm:jspm-nodelibs-path@^0.2.0",
-      "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "querystring": "npm:jspm-nodelibs-querystring@^0.2.0",
-      "react": "npm:react@^15.0.1",
-      "react-dnd": "npm:react-dnd@^2.0.0",
-      "react-dom": "npm:react-dom@^15.4.1",
-      "redux": "npm:redux@^3.6.0",
-      "redux-saga": "npm:redux-saga@^0.12.1",
-      "stream": "npm:jspm-nodelibs-stream@^0.2.0",
-      "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
-      "url": "npm:jspm-nodelibs-url@^0.2.0",
-      "util": "npm:jspm-nodelibs-util@^0.2.0",
-      "vm": "npm:jspm-nodelibs-vm@^0.2.0",
-      "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
-    },
-    "overrides": {
-      "github:twbs/bootstrap@3.3.7": {
-        "main": "js/bootstrap.js",
-        "dependencies": {
-          "jquery": "jspm:jquery@*"
-        },
-        "files": [
-          "dist",
-          "fonts",
-          "js",
-          "css"
-        ],
-        "meta": {
-          "js/bootstrap.js": {
-            "deps": [
-              "jquery"
-            ],
-            "exports": "$",
-            "format": "global"
-          }
-        }
-      },
-      "npm:browserify-zlib@0.1.4": {
-        "dependencies": {
-          "readable-stream": "^2.0.2",
-          "pako": "~0.2.0"
-        },
-        "map": {
-          "_stream_transform": "readable-stream/transform"
-        }
-      },
-      "npm:debug@2.4.5": {
-        "main": "browser.js",
-        "jspmNodeConversion": false,
-        "format": "cjs",
-        "map": {
-          "./browser.js": {
-            "node": "./node.js"
-          },
-          "./node.js": {
-            "browser": "./browser.js"
-          },
-          "fs": "@node/fs",
-          "net": "@node/net",
-          "tty": "@node/tty",
-          "util": "@node/util"
-        }
-      },
-      "npm:font-awesome@4.7.0": {
-        "main": "css/font-awesome.css!",
-        "jspmNodeConversion": false,
-        "registry": "jspm",
-        "dependencies": {
-          "css": "0.1"
-        }
-      },
-      "npm:inherits@2.0.3": {
-        "ignore": [
-          "test.js"
-        ]
-      },
-      "npm:jquery@3.1.1": {
-        "format": "amd"
-      },
-      "npm:lodash@4.17.2": {
-        "map": {
-          "buffer": "@empty",
-          "process": "@empty"
-        }
-      },
-      "npm:ms@0.7.2": {
-        "jspmNodeConversion": false,
-        "format": "cjs"
-      }
-    }
+  "dependencies": {
+    "array.prototype.fill": "^1.0.2",
+    "bootstrap": "^3.3.7",
+    "classnames": "^2.2.5",
+    "cross-env": "^5.2.0",
+    "doasync": "^2.0.1",
+    "es5-sham-ie8": "^1.0.1",
+    "es5-shim": "^4.5.9",
+    "es6-promise": "^4.1.1",
+    "es6-shim": "^0.35.3",
+    "eslint-plugin-react": "^7.5.1",
+    "fetch-ponyfill": "^4.1.0",
+    "flatten": "^1.0.2",
+    "font-awesome": "^4.7.0",
+    "html5shiv": "^3.7.3",
+    "immutability-helper": "^2.6.4",
+    "intersperse": "^1.0.0",
+    "json-stable-stringify-without-jsonify": "^1.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "node-range": "^0.1.0",
+    "object.assign": "^4.0.4",
+    "rc-tooltip": "^3.4.2",
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.16.0",
+    "request": "^2.83.0"
   }
 }

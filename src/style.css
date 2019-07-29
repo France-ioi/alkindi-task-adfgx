@@ -1,5 +1,5 @@
-
-.adfgx-text, .adfgx-columns {
+.adfgx-text,
+.adfgx-columns {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 18px;
 }
@@ -11,7 +11,7 @@
   padding: 10px;
 }
 .adfgx-cell {
-  padding: 2px
+  padding: 2px;
 }
 
 .adfgx-q-guess {
@@ -45,9 +45,9 @@
 }
 .adfgx-hints-grid table td,
 .adfgx-hints-alphabet table td,
-.adfgx-hints-perm-grid  table td {
-    border: 1px solid #777;
-    padding: 3px 5px;
+.adfgx-hints-perm-grid table td {
+  border: 1px solid #777;
+  padding: 3px 5px;
 }
 .adfgx-alphabet .adfgx-hint-obtained {
   background-color: #aaa;
@@ -82,7 +82,7 @@
   width: auto;
   text-align: center;
   margin-top: 40px;
- }
+}
 .adfgx-hints-alphabet .adfgx-cell,
 .adfgx-hints-alphabet td.qualifier-disabled {
   width: 40px;
@@ -129,18 +129,33 @@
   float: left;
 }
 .adfgx-wire-cell {
-  background-image: url("adfgx/traits.png");
+  background-image: url("assets/traits.png");
   background-repeat: no-repeat;
 }
-.adfgx-wire-cell-a {background: transparent;}
-.adfgx-wire-cell-b {background-position: 0px -4px;}
-.adfgx-wire-cell-c {background-position: 0px -19px;}
-.adfgx-wire-cell-d {background-position: 0px -34px;}
-.adfgx-wire-cell-e {background-position: 0px -49px;}
-.adfgx-wire-cell-f {background-position: 0px -64px;}
-.adfgx-wire-cell-g {background-position: 0px -79px;}
-.adfgx-wire-cell-h {background-position: 0px -94px;}
-
+.adfgx-wire-cell-a {
+  background: transparent;
+}
+.adfgx-wire-cell-b {
+  background-position: 0px -4px;
+}
+.adfgx-wire-cell-c {
+  background-position: 0px -19px;
+}
+.adfgx-wire-cell-d {
+  background-position: 0px -34px;
+}
+.adfgx-wire-cell-e {
+  background-position: 0px -49px;
+}
+.adfgx-wire-cell-f {
+  background-position: 0px -64px;
+}
+.adfgx-wire-cell-g {
+  background-position: 0px -79px;
+}
+.adfgx-wire-cell-h {
+  background-position: 0px -94px;
+}
 
 /*
 
