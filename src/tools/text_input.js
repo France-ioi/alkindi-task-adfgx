@@ -76,21 +76,6 @@ function taskInitReducer (state, _action) {
   });
 }
 
-function lateReducer (state) {
-  if (state.taskReady) {
-    const {adfgxAlphabet: alphabet} = state;
-    const {text} = state.textInput;
-    const cells = cellsFromString(text, alphabet);
-    const outputText = {alphabet, cells};
-
-    state = update(state, {
-      textInput: {
-        outputText: {$set: outputText},
-      }
-    });
-  }
-  return state;
-}
 
 export default {
   actionReducers: {
@@ -98,6 +83,5 @@ export default {
   },
   views: {
     TextInput: connect(TextInputSelector)(TextInput)
-  },
-  // lateReducer
+  }
 };
